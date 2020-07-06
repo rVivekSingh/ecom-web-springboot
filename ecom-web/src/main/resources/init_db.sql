@@ -20,3 +20,12 @@ CREATE TABLE `orders` (
   `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `ecom_web`.`orders` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`id`);
+;
+
+ALTER TABLE `ecom_web`.`orders` 
+ADD COLUMN `num_of_items` INT NOT NULL AFTER `created_date`;
